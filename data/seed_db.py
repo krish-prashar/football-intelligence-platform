@@ -18,6 +18,25 @@ def seed_matches():
     response = requests.get(url, headers=headers)
     print("Status code:", response.status_code)
 
+    if response.status_code != 200:
+        print("API call failed — seeding with sample match data instead")
+        db = SessionLocal()
+        sample_matches = [
+            Match(home_team="Arsenal", away_team="Chelsea", home_score=2, away_score=1, date="2024-01-01"),
+            Match(home_team="Liverpool", away_team="Man City", home_score=1, away_score=1, date="2024-01-02"),
+            Match(home_team="Man United", away_team="Tottenham", home_score=0, away_score=2, date="2024-01-03"),
+            Match(home_team="Newcastle", away_team="Aston Villa", home_score=3, away_score=1, date="2024-01-04"),
+            Match(home_team="Chelsea", away_team="Liverpool", home_score=1, away_score=2, date="2024-01-05"),
+            Match(home_team="Man City", away_team="Arsenal", home_score=2, away_score=2, date="2024-01-06"),
+            Match(home_team="Tottenham", away_team="Newcastle", home_score=1, away_score=0, date="2024-01-07"),
+            Match(home_team="Aston Villa", away_team="Man United", home_score=2, away_score=0, date="2024-01-08"),
+        ]
+        db.add_all(sample_matches)
+        db.commit()
+        db.close()
+        print("Saved 8 sample matches!")
+        return
+
     data = response.json()
     db = SessionLocal()
 
