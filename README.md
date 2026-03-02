@@ -2,7 +2,7 @@
 
 A full-stack data science platform that combines match outcome prediction, player performance dashboards, transfer market analysis, and fantasy team optimization — all built with Python.
 
-**Live Demo:** [coming soon after deployment]  
+**Live Demo:** (https://football-intelligence-platform-vm28pebeczzbmdmq7tlzsa.streamlit.app/)  
 **Built by:** Krish Prashar — 2nd Year CS Student at Wilfrid Laurier University
 
 ---
